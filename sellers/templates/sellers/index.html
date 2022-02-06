@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{%block conteudo%}
+<h1 class="mt-5">Preços</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th> ID VTEX</th>
+      <th>Imagem</th>
+      <th>Nome Produto</th>
+      <th>Marca</th>
+      <th>Ean</th>
+      <th>Referencia</th>
+      <th>Meu Preço</th>
+      <th>Seller Menor Preço</th>
+      <th>Menor Preço</th>
+      <th>Seller Maior Preço</th>
+      <th>Maior Preço</th>
+      <th>Diferença</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+    <tr>
+        <td>23808</td>
+        <td>Kit Sonorização Amplificador Slim 1000 Com 04 Caixas Passivas Frahm- SBX53</a></td>
+      <td>Frahm</td>
+      <td>7893051056224</td>
+      <td>KIT281</td>
+      <td>1091,59</td>
+      <td>Americanas.com.br</td>
+      <td>999,00</td>
+      <td>Nao tem</td>
+      <td>Não tem</td>
+      <td>Aguardando</td>
+      <td>Caixa de Som Portátil Amplificada com ótimos preços | Mercostore</td>
+    </tr>
+   
+
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% for pagina in contatos.paginator.page_range %}
+        {% if contatos.number == pagina %}
+          <li class="page-item active">
+            <a class="page-link" href="?p={{ pagina }}&termo={{ request.GET.termo }}">{{pagina}}</a>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?p={{ pagina }}&termo={{ request.GET.termo }}">{{pagina}}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+  
+  {%endblock%}
